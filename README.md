@@ -17,10 +17,11 @@ The Basys-3 board runs at 100 MHz, we divide the clock down to **10 MHz** for th
 
 ## Architecture & Datapath
 The datapath follows a standard textbook single-cycle design:
-1.  **Instruction Fetch:** The Program Counter (PC) fetches an instruction from memory.
-2.  **Decode:** The control unit decodes the opcode and sets all necessary signals.
-3.  **Execute:** The register file and ALU perform the computation.
-4.  **Write-Back:** The result is written back to the register file or stored in memory.
+1. **Instruction Fetch:** The Program Counter (PC) fetches an instruction from memory.
+2. **Decode:** The control unit decodes the opcode and sets all necessary signals.
+3. **Execute:** The register file and ALU perform the computation.
+4. **Memory Access:** Load instructions read from data memory; store instructions write to it.
+5. **Write-Back:** The result is written back to the register file.
 
 ## Memory-Mapped I/O (MMIO)
 We utilize memory-mapped I/O to interact with the FPGA's peripherals. A standard store instruction to these specific addresses writes to the peripheral instead of data memory:
